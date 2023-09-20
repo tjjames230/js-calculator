@@ -23,3 +23,9 @@ function clear() {
   document.querySelector("#preview").innerHTML = 0;
   document.querySelector("#output").innerHTML = 0;
 }
+
+Array.from(document.querySelectorAll(".number")).forEach((button) =>
+  button.addEventListener("click", (e) => {
+    console.log(e.target.innerHTML);
+  })
+);
