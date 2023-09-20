@@ -45,8 +45,8 @@ body {
   grid-column: 1 / 4;
 }
 
-#equals {
-  grid-column: 1 / 5;
+#clear {
+  grid-column: 1 / 4;
 }
 
 .button {
