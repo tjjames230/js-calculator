@@ -1,6 +1,5 @@
-/*
-const zero = Number(document.querySelector("#zero").innerHTML);
-*/
+let preview = document.querySelector("#preview");
+let output = document.querySelector("#output");
 
 const operators = {
   "+": function (a, b) {
@@ -20,12 +19,22 @@ const operators = {
 document.querySelector("#clear").addEventListener("click", clear);
 
 function clear() {
-  document.querySelector("#preview").innerHTML = 0;
-  document.querySelector("#output").innerHTML = 0;
+  preview.innerHTML = 0;
+  output.innerHTML = 0;
 }
 
 Array.from(document.querySelectorAll(".number")).forEach((button) =>
   button.addEventListener("click", (e) => {
-    console.log(e.target.innerHTML);
+    if (output.innerHTML == 0) {
+      output.innerHTML = e.target.innerHTML;
+    } else {
+      output.innerHTML += e.target.innerHTML;
+    }
   })
 );
+
+Array.from(document.querySelectorAll(".operator")).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    console.log(e.target.innerHTML);
+  });
+});
