@@ -1,5 +1,6 @@
 let preview = document.querySelector("#preview");
 let output = document.querySelector("#output");
+const equals = document.querySelector("#equals");
 
 const operators = {
   "+": function (a, b) {
@@ -23,6 +24,7 @@ function clear() {
   output.innerHTML = 0;
 }
 
+// Update output to equal string of numbers entered
 Array.from(document.querySelectorAll(".number")).forEach((button) =>
   button.addEventListener("click", (e) => {
     if (output.innerHTML == 0) {
@@ -33,8 +35,12 @@ Array.from(document.querySelectorAll(".number")).forEach((button) =>
   })
 );
 
+// Update preview to equal output and reset output after selecting an operator
 Array.from(document.querySelectorAll(".operator")).forEach((button) => {
-  button.addEventListener("click", (e) => {
-    console.log(e.target.innerHTML);
+  button.addEventListener("click", () => {
+    preview.innerHTML = output.innerHTML;
+    output.innerHTML = 0;
   });
 });
+
+equals.addEventListener("click", () => {});
