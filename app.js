@@ -46,7 +46,12 @@ Array.from(document.querySelectorAll(".operator")).forEach((button) => {
   });
 });
 
-equals.addEventListener("click", (out, pre, op) => {
-  //need to check tempOperator with operators object to run function accordingly
-  console.log(final);
+equals.addEventListener("click", () => {
+  let final = getEquation(output.innerHTML, preview.innerHTML, tempOperator);
+  output.innerHTML = final;
+  preview.innerHTML = 0;
 });
+
+function getEquation(out, pre, op) {
+  return operators[op](Number(pre), Number(out));
+}
