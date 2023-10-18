@@ -36,11 +36,17 @@ Array.from(document.querySelectorAll(".number")).forEach((button) =>
 );
 
 // Update preview to equal output and reset output after selecting an operator
+let tempOperator;
 Array.from(document.querySelectorAll(".operator")).forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (e) => {
     preview.innerHTML = output.innerHTML;
     output.innerHTML = 0;
+
+    return (tempOperator = e.target.innerHTML);
   });
 });
 
-equals.addEventListener("click", () => {});
+equals.addEventListener("click", (out, pre, op) => {
+  //need to check tempOperator with operators object to run function accordingly
+  console.log(final);
+});
