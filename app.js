@@ -47,11 +47,25 @@ Array.from(document.querySelectorAll(".operator")).forEach((button) => {
 });
 
 equals.addEventListener("click", () => {
-  let final = getEquation(output.innerHTML, preview.innerHTML, tempOperator);
-  output.innerHTML = final;
-  preview.innerHTML = 0;
+  if (tempOperator !== undefined) {
+    let final = getEquation(output.innerHTML, preview.innerHTML, tempOperator);
+    output.innerHTML = final;
+    preview.innerHTML = 0;
+  }
 });
 
 function getEquation(out, pre, op) {
   return operators[op](Number(pre), Number(out));
+}
+
+document.querySelector("#del").addEventListener("click", backspace);
+
+function backspace() {
+  if (output.innerHTML !== "0") {
+    if (output.innerHTML.length > 1) {
+      output.innerHTML = output.innerHTML.slice(0, -1);
+    } else {
+      output.innerHTML = "0";
+    }
+  }
 }
