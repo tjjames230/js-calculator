@@ -55,7 +55,11 @@ equals.addEventListener("click", () => {
 });
 
 function getEquation(out, pre, op) {
-  return operators[op](Number(pre), Number(out));
+  if (Number(out) < 0 && Number(pre) === 0) {
+    return out;
+  } else {
+    return operators[op](Number(pre), Number(out));
+  }
 }
 
 document.querySelector("#del").addEventListener("click", backspace);
