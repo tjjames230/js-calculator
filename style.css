@@ -20,7 +20,9 @@ body {
 
 #output-ctn {
   background-color: #fff;
+  max-width: 429px;
   margin-bottom: 25px;
+  overflow: hidden;
 }
 
 #preview,
