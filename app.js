@@ -51,6 +51,7 @@ equals.addEventListener("click", () => {
     let final = getEquation(output.innerHTML, preview.innerHTML, tempOperator);
     output.innerHTML = final;
     preview.innerHTML = 0;
+    tempOperator = "";
   }
 });
 
