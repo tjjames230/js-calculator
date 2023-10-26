@@ -39,8 +39,10 @@ Array.from(document.querySelectorAll(".number")).forEach((button) =>
 let tempOperator;
 Array.from(document.querySelectorAll(".operator")).forEach((button) => {
   button.addEventListener("click", (e) => {
-    preview.innerHTML = output.innerHTML;
-    output.innerHTML = 0;
+    if (tempOperator == undefined) {
+      preview.innerHTML = output.innerHTML;
+      output.innerHTML = 0;
+    }
 
     return (tempOperator = e.target.innerHTML);
   });
@@ -51,7 +53,7 @@ equals.addEventListener("click", () => {
     let final = getEquation(output.innerHTML, preview.innerHTML, tempOperator);
     output.innerHTML = final;
     preview.innerHTML = 0;
-    tempOperator = "";
+    tempOperator = undefined;
   }
 });
 
