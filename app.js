@@ -35,16 +35,23 @@ Array.from(document.querySelectorAll(".number")).forEach((button) =>
   })
 );
 
-// Update preview to equal output and reset output after selecting an operator
 let tempOperator;
+
 Array.from(document.querySelectorAll(".operator")).forEach((button) => {
   button.addEventListener("click", (e) => {
     if (tempOperator == undefined) {
       preview.innerHTML = output.innerHTML;
-      output.innerHTML = 0;
+    } else {
+      let final = getEquation(
+        output.innerHTML,
+        preview.innerHTML,
+        tempOperator
+      );
+      preview.innerHTML = final;
     }
 
-    return (tempOperator = e.target.innerHTML);
+    output.innerHTML = 0;
+    tempOperator = e.target.innerHTML;
   });
 });
 
